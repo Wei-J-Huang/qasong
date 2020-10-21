@@ -1,8 +1,6 @@
 import React from 'react'
 import { makeStyles } from '@material-ui/core/styles';
 import {
-    Tooltip,
-    Box,
     IconButton,
     Typography,
     Popover
