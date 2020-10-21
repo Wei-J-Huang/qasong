@@ -1,4 +1,5 @@
 import axios from "axios";
+import uuid from "uuid";
 
 let baseUrl;
 
@@ -46,10 +47,19 @@ export function authenticateUser(username, password) {
     });
 }
 
+export function getVideoIdsByUserId(userid) {
+  if(!userid) return "no userid";
+
+  con.query(`SELECT video_ids FROM playlists WHERE userid='${userid}';`, (err, data) => {
+    return data[0].video_ids;
+  })
+}
+
 export function createUser(username, password) {
   const postBody = {
     username: username,
     password: password,
+    userid: uuid.v4()
   };
 
   return axios
