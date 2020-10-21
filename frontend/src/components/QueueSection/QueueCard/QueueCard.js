@@ -16,7 +16,7 @@ import {
 import { formatVideoTitle } from "../../../functions";
 import ClearIcon from "@material-ui/icons/Clear";
 
-const useStyles = makeStyles((theme) => ({
+/*const useStyles = makeStyles((theme) => ({
   card: {
     cursor: "move",
     display: "inline-block",
@@ -34,8 +34,34 @@ const useStyles = makeStyles((theme) => ({
     top: theme.spacing(1),
     right: theme.spacing(0.5)
   },
+}));*/
+const useStyles = makeStyles((theme) => ({
+  card: {
+    position: "relative",
+    maxWidth: 125,
+    maxHeight: 210,
+    display: "inline-block",
+    marginLeft: "41.5px",
+    marginTop: "25px",
+    boxShadow: 'none',
+    backgroundColor: "transparent",
+    "&:hover > *": {
+      visibility: "visible !important",
+    }
+  },
+  media: {
+    height: 130,
+  },
+  titleSize: {
+    fontSize: 11.5,
+  },
+  overlay: {
+    visibility: "hidden",
+    position: "absolute",
+    top: theme.spacing(1),
+    left: theme.spacing(0.5)
+  },
 }));
-
 export default function ImgMediaCard({
   id,
   index,
