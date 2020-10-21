@@ -66,20 +66,20 @@ export default function SimpleModal({ user, darkMode, setDarkMode }) {
         {/* row */}
         <Grid item>
           <Typography variant="h5" align='center'>
-            {user.username}
+            {user.username && user.username}
           </Typography>
         </Grid>
 
         {/* row */}
         <Grid item>
           <Typography variant="caption" align='center'>
-            {user.email}
+            { user.email && user.email}
           </Typography>
         </Grid>
 
         {/* row */}
         <Grid item>
-            {user.badges.split(',').map(badge => {
+            {user.badges && user.badges.split(',').map(badge => {
               return (<Chip
                 label={badge}
                 color={badge==="vip"?"secondary":"inherit"}
