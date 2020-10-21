@@ -2,7 +2,7 @@
 
 const express = require("express");
 const router = express.Router();
-
+const uuid = require("uuid");
 const con = require("../database/connection.js");
 const jwt = require("jsonwebtoken");
 
@@ -31,9 +31,11 @@ function authenticate(req, res, next) {
         const username = data[0].username;
         const email = data[0].email;
         const badges = data[0].badges;
+        const userid = data[0].userid;
 
         res.json({
           email: email,
+          userid: userid,
           badges: badges,
           username: username,
           token: token,
@@ -58,9 +60,9 @@ function makeOne(req, res, next) {
   if(!username) return res.json("no username");;
   if(!password) return rese.json("no password");;
   con.query(
-    `INSERT INTO users (username, password) VALUES('${con.escape(username)}', '${con.escape(
+    `INSERT INTO users (username, password, userid) VALUES('${username}', '${
       password
-    )}');`,
+    }', '${uuid.v4()}');`,
     (err, data) => {
       if (err) {
         res.json(err);
